@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class App extends Component {
+  state = {
+    title: "",
+    body: ""
+  };
   render() {
     return (
       <div className="container-fluid">
@@ -14,15 +18,21 @@ class App extends Component {
                   className="form-control no-border"
                   placeholder="Title..."
                   required
+                  onChange={event => {
+                    this.setState({ title: event.target.value });
+                  }}
                 />
               </div>
               <div className="form-group">
-                <input
+                <textarea
                   type="text"
                   name="body"
                   className="form-control no-border"
                   placeholder="Body..."
                   required
+                  onChange={event => {
+                    this.setState({ body: event.target.value });
+                  }}
                 />
               </div>
               <div className="form-group">
