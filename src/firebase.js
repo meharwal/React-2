@@ -10,6 +10,6 @@ const firebaseConfig = {
   appId: "1:314029576798:web:613287d52b60fdb6ad9acf",
   measurementId: "G-QB4H08Y33R"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 export const database = firebase.database().ref("/notes");
