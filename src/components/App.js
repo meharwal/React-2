@@ -14,7 +14,7 @@ class App extends Component {
     const note = {
       title: this.state.title,
       body: this.state.body
-    };
+    }; 
     database.push(note);
     this.setState({ title: "", body: "" });
   };
