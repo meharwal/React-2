@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 
 import { connect } from "react-redux";
-import { getNotes, saveNote } from "../actions/notesAction";
+import { getNotes, saveNote, deleteNote } from "../actions/notesAction";
 
 class App extends Component {
   state = {
@@ -29,9 +29,17 @@ class App extends Component {
   renderNotes = () => {
     return _.map(this.props.notes, (note, key) => {
       return (
-        <div key="key">
+        <div key={key}>
           <h2>{note.title}</h2>
           <p>{note.body}</p>
+          <button
+            className="btn btn-danger btn-xs"
+            onClick={() => {
+              this.props.deleteNote(key);
+            }}
+          >
+            Delete
+          </button>
         </div>
       );
     });
@@ -87,4 +95,6 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, { getNotes, saveNote })(App);
+export default connect(mapStateToProps, { getNotes, saveNote, deleteNote })(
+  App
+);
