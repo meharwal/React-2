@@ -49,7 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="row">
+        <div className="row text-center">
           <div className="col-sm-12">
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
