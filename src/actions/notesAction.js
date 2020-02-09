@@ -12,7 +12,7 @@ export function getNotes() {
   };
 }
 
-export function setNotes(note) {
+export function saveNote(note) {
   return dispatch => {
     database.push(note);
   };
