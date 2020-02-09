@@ -9,23 +9,27 @@ export function getNotes() {
       payload: true
     });
 
-    database.on("value", snapshot => {
-      dispatch({
-        type: GET_NOTES,
-        payload: snapshot.val()
-      });
+    database.on(
+      "value",
+      snapshot => {
+        dispatch({
+          type: GET_NOTES,
+          payload: snapshot.val()
+        });
 
-      // once notes are received show loading to false
-      dispatch({
-        type: NOTES_STATUS,
-        payload: false
-      });
-    },{
-      dispatch({
-        type:NOTES_STATUS,
-        payload:-1
-      })
-    });
+        // once notes are received show loading to false
+        dispatch({
+          type: NOTES_STATUS,
+          payload: false
+        });
+      },
+      () => {
+        dispatch({
+          type: NOTES_STATUS,
+          payload: -1
+        });
+      }
+    );
   };
 }
 
